@@ -14,7 +14,9 @@ class Rm(name: String) extends Command {
 		else wd.path + Directory.SEPARATOR + name
 
 		// 3. Do some checks
+		// TODO: Implement check whether dir to delete is not a parent of current directory
 		if (absPath.equals(Directory.ROOT_PATH)) state.setMessage("Removing root folder is not allowed (yet)!")
+//		else if (wd.path.contains(absPath)) state.setMessage("Cannot delete current directory or it's parent")
 		else {
 			doRm(state, absPath)
 		}
